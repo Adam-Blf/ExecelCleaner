@@ -1,0 +1,4 @@
+pandas>=2.0.0
+openpyxl>=3.1.0
+# Optionnel pour le drag-and-drop dans Tkinter:
+tkinterdnd2>=0.4.2
