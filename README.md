@@ -1,8 +1,105 @@
-# ExcelCleaner
+# ExcelCleaner - Nettoyeur Excel / Excel Cleaner
 
-A **Tkinter**-based desktop application for cleaning and normalizing Excel/CSV files. Remove unwanted columns, standardize date formats, and export sanitized data—all through a simple drag-and-drop GUI.
+[🇫🇷 Version Française](#version-française) | [🇬🇧 English Version](#english-version)
 
-## ✨ Features
+---
+
+## <a name="version-française"></a>🇫🇷 Version Française
+
+Application de bureau **Tkinter** pour nettoyer et normaliser des fichiers Excel/CSV. Supprimez des colonnes indésirables, standardisez les formats de date et exportez des données nettoyées via une interface graphique simple avec glisser-déposer.
+
+### ✨ Fonctionnalités
+
+- 📂 **Support Glisser-Déposer** : chargement de fichiers intuitif (nécessite `tkinterdnd2`)
+- 🗑️ **Suppression de Colonnes** : effacement interactif des colonnes inutiles
+- 📅 **Normalisation de Dates** : détection et conversion automatiques au format `YYYY-MM-DD`
+- 💾 **Export Excel** : sauvegarde des données nettoyées en `*_clean.xlsx`
+- 🖥️ **Interface Multiplateforme** : GUI Tkinter fonctionnant sur Windows, macOS et Linux
+- 📦 **Exécutable Autonome** : script PyInstaller pour créer un `.exe` Windows
+
+### 🛠️ Stack Technologique
+
+| Composant | Technologie | Objectif |
+|-----------|-------------|----------|
+| **Framework GUI** | Tkinter | Bibliothèque UI native Python |
+| **Traitement Données** | pandas 2.1+ | Opérations DataFrame et transformations |
+| **Moteur Excel** | openpyxl 3.1+ | Lecture/écriture fichiers .xlsx |
+| **Glisser-Déposer** | tkinterdnd2 (optionnel) | UX sélection fichiers améliorée |
+| **Packaging** | PyInstaller 6.3+ | Génération exécutable Windows |
+| **Langage** | Python 3.9+ | Logique applicative |
+
+### 📁 Structure du Projet
+
+```
+ExecelCleaner/
+├── main.py                  # Application GUI principale
+├── requirements.txt         # Dépendances principales
+├── requirements-dev.txt     # Dépendances développement/packaging
+├── scripts/
+│   ├── excel_cleaner.spec   # Configuration PyInstaller
+│   └── build_windows.bat    # Script construction exécutable Windows
+└── README.md
+```
+
+### 🚀 Démarrage Rapide
+
+#### Prérequis
+
+- Python 3.9 ou supérieur
+- Gestionnaire de paquets pip
+
+#### Installation
+
+```bash
+# Clonez ou téléchargez le dépôt
+cd ExecelCleaner
+
+# Créez un environnement virtuel (recommandé)
+python -m venv .venv
+
+# Activez l'environnement
+# Windows PowerShell:
+.\.venv\Scripts\Activate.ps1
+# Windows CMD:
+.venv\Scripts\activate.bat
+# macOS/Linux:
+source .venv/bin/activate
+
+# Installez les dépendances
+pip install -r requirements.txt
+
+# (Optionnel) Support glisser-déposer
+pip install tkinterdnd2
+
+# Lancez l'application
+python main.py
+```
+
+### 🎯 Utilisation
+
+1. **Charger un Fichier** : bouton **"Browse"** ou glisser fichier `.xlsx`/`.csv`
+2. **Supprimer Colonnes** : sélectionner dans liste → **"Remove Selected Columns"**
+3. **Normaliser Dates** : clic **"Normalize Dates"** (détection automatique)
+4. **Exporter** : **"Export Clean Excel"** → sauvegarde `*_clean.xlsx`
+
+### 🗺️ Feuille de Route
+
+- [ ] Export CSV
+- [ ] Traitement par lots
+- [ ] Rapports qualité données
+- [ ] Filtres avancés (doublons, plages valeurs)
+- [ ] Undo/Redo
+- [ ] Mode CLI pour automatisation
+- [ ] Intégration cloud (Google Sheets, OneDrive)
+- [ ] Packaging macOS/Linux
+
+---
+
+## <a name="english-version"></a>🇬🇧 English Version
+
+A **Tkinter**-based desktop application for cleaning and normalizing Excel/CSV files. Remove unwanted columns, standardize date formats, and export sanitized data through a simple drag-and-drop GUI.
+
+### ✨ Features
 
 - 📂 **Drag-and-Drop Support**: intuitive file loading (requires `tkinterdnd2`)
 - 🗑️ **Column Removal**: interactively delete unnecessary columns
@@ -11,7 +108,7 @@ A **Tkinter**-based desktop application for cleaning and normalizing Excel/CSV f
 - 🖥️ **Cross-Platform GUI**: Tkinter interface works on Windows, macOS, and Linux
 - 📦 **Standalone Executable**: PyInstaller script to build Windows `.exe`
 
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 | Component | Technology | Purpose |
 |-----------|------------|---------|
@@ -22,26 +119,27 @@ A **Tkinter**-based desktop application for cleaning and normalizing Excel/CSV f
 | **Packaging** | PyInstaller 6.3+ | Windows executable generation |
 | **Language** | Python 3.9+ | Core application logic |
 
-## 📁 Project Structure
+### 📁 Project Structure
 
-```text
+```
 ExecelCleaner/
-├── main.py                # Main GUI application
-├── requirements.txt       # Core dependencies
-├── requirements-dev.txt   # Development/packaging dependencies
-├── excel_cleaner.spec     # PyInstaller configuration
-├── build_windows.bat      # Windows executable build script
+├── main.py                  # Main GUI application
+├── requirements.txt         # Core dependencies
+├── requirements-dev.txt     # Development/packaging dependencies
+├── scripts/
+│   ├── excel_cleaner.spec   # PyInstaller configuration
+│   └── build_windows.bat    # Windows executable build script
 └── README.md
 ```
 
-## 🚀 Quick Start
+### 🚀 Quick Start
 
-### Prerequisites
+#### Prerequisites
 
 - Python 3.9 or higher
 - pip package manager
 
-### Installation
+#### Installation
 
 ```bash
 # Clone or download the repository
@@ -61,168 +159,34 @@ source .venv/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# (Optional) Install drag-and-drop support
+# (Optional) Drag-and-drop support
 pip install tkinterdnd2
 
 # Launch application
 python main.py
 ```
 
-### Usage
+### 🎯 Usage
 
-1. **Load File**
-   - Click **"Browse"** button or drag `.xlsx`/`.csv` file into window (if `tkinterdnd2` installed)
-   - File preview appears in table
+1. **Load File**: click **"Browse"** or drag `.xlsx`/`.csv` file
+2. **Remove Columns**: select from checklist → **"Remove Selected Columns"**
+3. **Normalize Dates**: click **"Normalize Dates"** (auto-detection)
+4. **Export**: **"Export Clean Excel"** → saves `*_clean.xlsx`
 
-2. **Remove Columns**
-   - Select unwanted columns from checklist
-   - Click **"Remove Selected Columns"**
+### 🗺️ Roadmap
 
-3. **Normalize Dates**
-   - Application auto-detects date columns
-   - Click **"Normalize Dates"** to convert to `YYYY-MM-DD`
-   - Manual date column specification available
+- [ ] CSV export
+- [ ] Batch processing
+- [ ] Data quality reports
+- [ ] Advanced filters (duplicates, value ranges)
+- [ ] Undo/Redo
+- [ ] CLI mode for automation
+- [ ] Cloud integration (Google Sheets, OneDrive)
+- [ ] macOS/Linux packaging
 
-4. **Export**
-   - Click **"Export Clean Excel"**
-   - File saves as `original_filename_clean.xlsx` in same directory
+### 📄 License
 
-## 📋 Supported Formats
-
-### Input
-
-- **Excel**: `.xlsx` (via openpyxl)
-- **CSV**: `.csv` (auto-detected encoding)
-
-### Output
-
-- **Excel**: `.xlsx` with cleaned data
-
-### Date Format Detection
-
-Recognizes common patterns:
-
-- `YYYY-MM-DD`, `DD/MM/YYYY`, `MM-DD-YYYY`
-- `DD MMM YYYY` (e.g., "15 Jan 2024")
-- Timestamps (converted to date-only)
-
-## ⚙️ Configuration
-
-### Customize Date Format Output
-
-Edit `main.py`:
-
-```python
-# Change output format (default: YYYY-MM-DD)
-df[col] = pd.to_datetime(df[col], errors='coerce').dt.strftime('%d/%m/%Y')
-```
-
-### Adjust Column Removal Behavior
-
-In the GUI layout section:
-
-```python
-# Allow multiple column selection
-column_listbox = tk.Listbox(frame, selectmode=tk.MULTIPLE)
-```
-
-### Set Default Export Path
-
-Modify export logic:
-
-```python
-# Export to specific directory
-output_path = os.path.join('/path/to/output', f'{base_name}_clean.xlsx')
-```
-
-## 🔒 Best Practices
-
-- **Backup Original Files**: app overwrites export if filename exists
-- **Date Validation**: review normalized dates; ambiguous formats (e.g., 01/02/03) may parse incorrectly
-- **Large Files**: files >50MB may cause GUI lag; consider batch processing or CLI alternative
-- **Encoding Issues**: CSV files with non-UTF-8 encoding may fail; pre-convert using `iconv` or similar tools
-
-## 🧪 Testing
-
-### Sample Test Case
-
-Create `test_data.xlsx`:
-
-| Name | Date | Value | Unused Column |
-|------|------|-------|---------------|
-| Alice | 2024-01-15 | 100 | junk |
-| Bob | 15/01/2024 | 200 | more junk |
-
-Expected outcome after cleaning:
-
-- Remove "Unused Column"
-- Normalize "Date" to `2024-01-15` format
-- Export as `test_data_clean.xlsx`
-
-### Automated Testing
-
-```bash
-# (Future enhancement—not yet implemented)
-pytest tests/test_cleaner.py
-```
-
-## 📦 Building Executable (Windows)
-
-### Prerequisites
-
-```bash
-pip install -r requirements-dev.txt
-```
-
-### Build Steps
-
-```bash
-# Run build script
-build_windows.bat
-```
-
-Or manually:
-
-```bash
-pyinstaller excel_cleaner.spec
-```
-
-Output:
-
-- `dist\ExcelCleaner\ExcelCleaner.exe` (main executable)
-- `dist\ExcelCleaner\` (folder with all dependencies)
-
-Distribute the entire `dist\ExcelCleaner\` folder to end users.
-
-### Customize Executable
-
-Edit `excel_cleaner.spec`:
-
-```python
-# Change app name
-exe = EXE(..., name='MyCleanerApp', ...)
-
-# Add icon
-exe = EXE(..., icon='path/to/icon.ico', ...)
-
-# Bundle as single file (larger startup time)
-exe = EXE(..., onefile=True, ...)
-```
-
-## 🗺️ Roadmap
-
-- [ ] **CSV Export**: add option to export as `.csv`
-- [ ] **Batch Processing**: clean multiple files in one run
-- [ ] **Data Quality Reports**: generate summary of changes (rows removed, columns modified)
-- [ ] **Advanced Filters**: remove duplicates, filter by value ranges
-- [ ] **Undo/Redo**: revert cleaning operations
-- [ ] **CLI Mode**: headless operation for automation/scripts
-- [ ] **Cloud Integration**: support Google Sheets or OneDrive uploads
-- [ ] **macOS/Linux Packaging**: PyInstaller specs for non-Windows platforms
-
-## 📄 License
-
-This project is licensed under the **MIT License**. See [LICENSE](LICENSE) for details.
+This project is open source. See LICENSE file for details.
 
 ---
 
