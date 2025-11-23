@@ -1,4 +1,4 @@
-pandas>=2.0.0
+pandas<2.2.0
 openpyxl>=3.1.0
 streamlit
 # Optionnel pour le drag-and-drop dans Tkinter:
