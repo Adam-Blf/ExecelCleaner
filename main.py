@@ -77,48 +77,112 @@ def normalize_dates(df, selected_date_cols=None):
             pass
     return handled
 
+def setup_theme(root):
+    """
+    Configure a modern dark theme for the application.
+    """
+    style = ttk.Style(root)
+    
+    # Colors
+    bg_color = "#2b2b2b"
+    fg_color = "#ffffff"
+    accent_color = "#4ade80"
+    secondary_bg = "#3c3f41"
+    select_bg = "#4ade80"
+    select_fg = "#000000"
+    
+    # Configure standard styles
+    style.theme_use('clam')
+    
+    style.configure(".", 
+        background=bg_color, 
+        foreground=fg_color, 
+        fieldbackground=secondary_bg,
+        troughcolor=bg_color,
+        font=("Segoe UI", 10)
+    )
+    
+    style.configure("TFrame", background=bg_color)
+    style.configure("TLabel", background=bg_color, foreground=fg_color)
+    style.configure("TButton", 
+        background=secondary_bg, 
+        foreground=fg_color, 
+        borderwidth=0, 
+        focuscolor=accent_color
+    )
+    style.map("TButton", 
+        background=[('active', accent_color)], 
+        foreground=[('active', '#000000')]
+    )
+    
+    style.configure("TEntry", 
+        fieldbackground=secondary_bg, 
+        foreground=fg_color,
+        insertcolor=fg_color
+    )
+    
+    # Custom styles
+    style.configure("Header.TLabel", font=("Segoe UI", 12, "bold"), foreground=accent_color)
+    style.configure("Status.TLabel", font=("Segoe UI", 9), foreground="#aaaaaa")
+
+    # Configure root background
+    root.configure(bg=bg_color)
+    
+    return {
+        "bg": bg_color,
+        "fg": fg_color,
+        "secondary": secondary_bg,
+        "accent": accent_color
+    }
+
 class ExcelCleanerApp:
-    def __init__(self, root):
+    def __init__(self, root, colors=None):
         self.root = root
         self.root.title(APP_TITLE)
         self.filepath = None
         self.df = None
+        self.colors = colors if colors else {"bg": "#2b2b2b", "fg": "#ffffff", "secondary": "#3c3f41", "accent": "#4ade80"}
 
         # Style de base
-        self.root.geometry("820x600")
-        self.root.minsize(700, 550)
+        self.root.geometry("900x650")
+        self.root.minsize(800, 600)
 
         # Frame top: sélection fichier + drag&drop
-        top_frame = ttk.Frame(root, padding=12)
+        top_frame = ttk.Frame(root, padding=20)
         top_frame.pack(fill="x")
 
-        ttk.Label(top_frame, text="Fichier à nettoyer (.xlsx/.xls/.csv) :").pack(anchor="w")
+        ttk.Label(top_frame, text="Fichier à nettoyer (.xlsx/.xls/.csv) :", style="Header.TLabel").pack(anchor="w", pady=(0, 5))
         self.entry_path = ttk.Entry(top_frame)
-        self.entry_path.pack(side="left", fill="x", expand=True, padx=(0,8))
+        self.entry_path.pack(side="left", fill="x", expand=True, padx=(0,10), ipady=5)
 
         ttk.Button(top_frame, text="Parcourir...", command=self.select_file).pack(side="left")
 
         if DND_AVAILABLE:
             # Zone de drop si tkinterdnd2 dispo
-            self.drop_label = ttk.Label(top_frame, text="Glissez-déposez un fichier ici", relief="ridge", padding=8)
-            self.drop_label.pack(side="left", padx=(8,0))
+            self.drop_label = ttk.Label(top_frame, text="Glissez-déposez un fichier ici", relief="flat", padding=10, background=self.colors["secondary"])
+            self.drop_label.pack(side="left", padx=(10,0))
             self.drop_label.drop_target_register(DND_FILES)
             self.drop_label.dnd_bind('<<Drop>>', self.on_drop)
         else:
-            self.drop_label = ttk.Label(top_frame, text="(Drag&Drop indisponible – installez 'tkinterdnd2')")
-            self.drop_label.pack(side="left", padx=(8,0))
+            self.drop_label = ttk.Label(top_frame, text="(Drag&Drop indisponible)", foreground="#666")
+            self.drop_label.pack(side="left", padx=(10,0))
 
         # Frame milieu: colonnes + actions
-        mid_frame = ttk.Frame(root, padding=12)
+        mid_frame = ttk.Frame(root, padding=20)
         mid_frame.pack(fill="both", expand=True)
 
         # Colonne gauche: liste des colonnes à supprimer
         left = ttk.Frame(mid_frame)
         left.pack(side="left", fill="both", expand=True)
 
-        ttk.Label(left, text="Colonnes détectées (sélectionnez celles à SUPPRIMER):").pack(anchor="w")
-        self.listbox_cols = tk.Listbox(left, selectmode="multiple", exportselection=False)
-        self.listbox_cols.pack(fill="both", expand=True, pady=(4,8))
+        ttk.Label(left, text="Colonnes détectées (sélectionnez celles à SUPPRIMER):", style="Header.TLabel").pack(anchor="w", pady=(0, 5))
+        
+        # Custom Listbox style
+        self.listbox_cols = tk.Listbox(left, selectmode="multiple", exportselection=False, 
+                                       bg=self.colors["secondary"], fg=self.colors["fg"], 
+                                       selectbackground=self.colors["accent"], selectforeground=self.colors["select_fg"] if "select_fg" in self.colors else "#000",
+                                       borderwidth=0, highlightthickness=1, highlightbackground=self.colors["bg"])
+        self.listbox_cols.pack(fill="both", expand=True, pady=(4,10))
 
         btns_left = ttk.Frame(left)
         btns_left.pack(anchor="w", pady=(0,8))
@@ -127,28 +191,30 @@ class ExcelCleanerApp:
 
         # Colonne droite: options dates + prévisualisation
         right = ttk.Frame(mid_frame)
-        right.pack(side="left", fill="both", expand=True, padx=(12,0))
+        right.pack(side="left", fill="both", expand=True, padx=(20,0))
 
-        ttk.Label(right, text="Colonnes de dates (optionnel) :").pack(anchor="w")
-        self.listbox_dates = tk.Listbox(right, selectmode="multiple", exportselection=False)
-        self.listbox_dates.pack(fill="both", expand=True, pady=(4,8))
+        ttk.Label(right, text="Colonnes de dates (optionnel) :", style="Header.TLabel").pack(anchor="w", pady=(0, 5))
+        self.listbox_dates = tk.Listbox(right, selectmode="multiple", exportselection=False,
+                                        bg=self.colors["secondary"], fg=self.colors["fg"], 
+                                        selectbackground=self.colors["accent"], selectforeground=self.colors["select_fg"] if "select_fg" in self.colors else "#000",
+                                        borderwidth=0, highlightthickness=1, highlightbackground=self.colors["bg"])
+        self.listbox_dates.pack(fill="both", expand=True, pady=(4,10))
 
-        ttk.Label(right, text="Aperçu (5 premières lignes) :").pack(anchor="w")
-        self.text_preview = tk.Text(right, height=12)
+        ttk.Label(right, text="Aperçu (5 premières lignes) :", style="Header.TLabel").pack(anchor="w", pady=(10, 5))
+        self.text_preview = tk.Text(right, height=12, bg=self.colors["secondary"], fg=self.colors["fg"], borderwidth=0, highlightthickness=0)
         self.text_preview.pack(fill="both", expand=True)
 
         # Frame bas: actions
-        bottom = ttk.Frame(root, padding=12)
+        bottom = ttk.Frame(root, padding=20)
         bottom.pack(fill="x")
 
         self.btn_load = ttk.Button(bottom, text="Charger", command=self.load_file)
         self.btn_load.pack(side="left")
 
         self.btn_clean = ttk.Button(bottom, text="Nettoyer & Enregistrer", command=self.clean_and_save, state="disabled")
-        self.btn_clean.pack(side="left", padx=(8,0))
+        self.btn_clean.pack(side="left", padx=(10,0))
 
-        self.status = ttk.Label(bottom, text="Prêt.")
-        self.status.pack(side="right")
+        self.status = ttk.Label(bottom, text="Prêt.", style="Status.TLabel")
 
     def on_drop(self, event):
         # Peut contenir des guillemets si le chemin a des espaces
@@ -270,16 +336,11 @@ def main():
         root = TkinterDnD.Tk()
     else:
         root = tk.Tk()
-    # Thème par défaut (ttk)
-    try:
-        from tkinter import ttk
-        style = ttk.Style(root)
-        if "clam" in style.theme_names():
-            style.theme_use("clam")
-    except Exception:
-        pass
+    
+    # Apply Modern Dark Theme
+    colors = setup_theme(root)
 
-    app = ExcelCleanerApp(root)
+    app = ExcelCleanerApp(root, colors)
     root.mainloop()
 
 if __name__ == "__main__":
