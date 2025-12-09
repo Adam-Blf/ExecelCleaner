@@ -1,10 +1,9 @@
-Dernier commit: 23/11/2025 | Langage principal: Python | Nombre de langages: 2
+![Dernier commit](https://img.shields.io/badge/Dernier%20commit-09/12/2025-brightgreen) ![Langage principal](https://img.shields.io/badge/Langage%20principal-Python-blue) ![Nombre de langages](https://img.shields.io/badge/Nombre%20de%20langages-2-orange)
 
-Construit avec les outils et technologies : 
-Python, Batchfile
+### Construit avec les outils et technologies : 
+![Python](https://img.shields.io/badge/-Python-lightgrey) ![Batchfile](https://img.shields.io/badge/-Batchfile-lightgrey)
 
 🇫🇷 Français | 🇬🇧 Anglais | 🇪🇸 Espagnol | 🇮🇹 Italien | 🇵🇹 Portugais | 🇷🇺 Russe | 🇩🇪 Allemand | 🇹🇷 Turc
-
 
 # ExcelCleaner - Nettoyeur Excel / Excel Cleaner
 
