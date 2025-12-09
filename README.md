@@ -1,9 +1,10 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adambeloucif/) ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=Adam-Blf.ExecelCleaner)
 
-![Dernier commit](https://img.shields.io/badge/Dernier%20commit-09/12/2025-brightgreen) ![Langage principal](https://img.shields.io/badge/Langage%20principal-Python-blue) ![Nombre de langages](https://img.shields.io/badge/Nombre%20de%20langages-2-orange)
+
+
+![Dernier commit](https://img.shields.io/github/last-commit/Adam-Blf/ExecelCleaner?style=flat&logo=git&logoColor=white&color=0080ff&label=Dernier%20commit) ![Langage principal](https://img.shields.io/github/languages/top/Adam-Blf/ExecelCleaner?style=flat&logo=git&logoColor=white&color=0080ff&label=Langage%20principal) ![Nombre de langages](https://img.shields.io/github/languages/count/Adam-Blf/ExecelCleaner?style=flat&logo=git&logoColor=white&color=0080ff&label=Nombre%20de%20langages)
 
 ### Construit avec les outils et technologies : 
-![Python](https://img.shields.io/badge/-Python-lightgrey) ![Batchfile](https://img.shields.io/badge/-Batchfile-lightgrey)
 
 🇫🇷 Français | 🇬🇧 Anglais | 🇪🇸 Espagnol | 🇮🇹 Italien | 🇵🇹 Portugais | 🇷🇺 Russe | 🇩🇪 Allemand | 🇹🇷 Turc
 
