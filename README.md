@@ -1,3 +1,15 @@
+# ExcelCleaner
+
+![Status](https://img.shields.io/badge/status-active-brightgreen)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![Tkinter](https://img.shields.io/badge/GUI-Tkinter-FFD43B)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
+
+Utilitaire de nettoyage et normalisation de fichiers Excel · GUI Tkinter desktop et webapp Streamlit.
+
+---
+
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adambeloucif/) ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=Adam-Blf.ExecelCleaner)
 
 
