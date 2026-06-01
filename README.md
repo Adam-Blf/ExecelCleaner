@@ -13,6 +13,26 @@
 
 Utilitaire de nettoyage et normalisation de fichiers Excel · GUI Tkinter desktop et webapp Streamlit.
 
+## Architecture
+
+```mermaid
+flowchart TB
+    A["Fichier source<br/>.xlsx · .csv · glisser-deposer"]
+    B["main.py<br/>GUI desktop Tkinter · tkinterdnd2"]
+    C["streamlit_app.py<br/>webapp Streamlit"]
+    D["Traitement pandas<br/>suppression colonnes · normalisation dates"]
+    E["openpyxl<br/>lecture / ecriture .xlsx"]
+    F["Export<br/>fichier *_clean.xlsx"]
+    G["scripts/excel_cleaner.spec<br/>packaging PyInstaller · .exe Windows"]
+    A --> B
+    A --> C
+    B --> D
+    C --> D
+    D --> E
+    E --> F
+    B --> G
+```
+
 ---
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adambeloucif/) ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=Adam-Blf.ExecelCleaner)
