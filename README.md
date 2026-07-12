@@ -11,19 +11,19 @@
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-150458?logo=pandas&logoColor=white)
 
-Utilitaire de nettoyage et normalisation de fichiers Excel · GUI Tkinter desktop et webapp Streamlit.
+Utilitaire de nettoyage et normalisation de fichiers Excel - GUI Tkinter desktop et webapp Streamlit.
 
 ## Architecture
 
 ```mermaid
 flowchart TB
-    A["Fichier source<br/>.xlsx · .csv · glisser-deposer"]
-    B["main.py<br/>GUI desktop Tkinter · tkinterdnd2"]
+    A["Fichier source<br/>.xlsx - .csv - glisser-deposer"]
+    B["main.py<br/>GUI desktop Tkinter - tkinterdnd2"]
     C["streamlit_app.py<br/>webapp Streamlit"]
-    D["Traitement pandas<br/>suppression colonnes · normalisation dates"]
+    D["Traitement pandas<br/>suppression colonnes - normalisation dates"]
     E["openpyxl<br/>lecture / ecriture .xlsx"]
     F["Export<br/>fichier *_clean.xlsx"]
-    G["scripts/excel_cleaner.spec<br/>packaging PyInstaller · .exe Windows"]
+    G["scripts/excel_cleaner.spec<br/>packaging PyInstaller - .exe Windows"]
     A --> B
     A --> C
     B --> D
@@ -246,7 +246,7 @@ For bug reports or feature requests, open an issue on GitHub.
 ---
 
 <p align="center">
-  <sub>Par <a href="https://adam.beloucif.com">Adam Beloucif</a> · Data Engineer & Fullstack Developer · <a href="https://github.com/Adam-Blf">GitHub</a> · <a href="https://www.linkedin.com/in/adambeloucif/">LinkedIn</a></sub>
+  <sub>Par <a href="https://adam.beloucif.com">Adam Beloucif</a> - Data Engineer & Fullstack Developer - <a href="https://github.com/Adam-Blf">GitHub</a> - <a href="https://www.linkedin.com/in/adambeloucif/">LinkedIn</a></sub>
 </p>
 
 
