@@ -6,7 +6,6 @@
 [![commits](https://img.shields.io/github/commit-activity/t/Adam-Blf/ExecelCleaner?color=001329&label=commits&style=flat-square)](https://github.com/Adam-Blf/ExecelCleaner/commits) [![visites](https://hits.sh/github.com/Adam-Blf/ExecelCleaner.svg?style=flat-square&label=visites&color=001329)](https://hits.sh/github.com/Adam-Blf/ExecelCleaner/) [![last commit](https://img.shields.io/github/last-commit/Adam-Blf/ExecelCleaner?color=D4A437&style=flat-square&label=dernier%20push)](https://github.com/Adam-Blf/ExecelCleaner/commits) [![top language](https://img.shields.io/github/languages/top/Adam-Blf/ExecelCleaner?style=flat-square)](https://github.com/Adam-Blf/ExecelCleaner) [![license](https://img.shields.io/github/license/Adam-Blf/ExecelCleaner?style=flat-square&color=D4A437)](LICENSE)
 <!-- adam-badges:end -->
 
-
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
 ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-FFD43B)
@@ -38,7 +37,6 @@ flowchart TB
 ---
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/adambeloucif/) ![Visitor Badge](https://visitor-badge.laobi.icu/badge?page_id=Adam-Blf.ExecelCleaner)
-
 
 ![Dernier commit](https://img.shields.io/github/last-commit/Adam-Blf/ExecelCleaner?style=flat&logo=git&logoColor=white&color=0080ff&label=Dernier%20commit) ![Langage principal](https://img.shields.io/github/languages/top/Adam-Blf/ExecelCleaner?style=flat&logo=git&logoColor=white&color=0080ff&label=Langage%20principal) ![Nombre de langages](https://img.shields.io/github/languages/count/Adam-Blf/ExecelCleaner?style=flat&logo=git&logoColor=white&color=0080ff&label=Nombre%20de%20langages)
 
@@ -251,13 +249,6 @@ For bug reports or feature requests, open an issue on GitHub.
   <sub>Par <a href="https://adam.beloucif.com">Adam Beloucif</a> - Data Engineer & Fullstack Developer - <a href="https://github.com/Adam-Blf">GitHub</a> - <a href="https://www.linkedin.com/in/adambeloucif/">LinkedIn</a></sub>
 </p>
 
-
-## Star History
-
-<a href="https://www.star-history.com/?repos=Adam-Blf%2FExecelCleaner&type=date&legend=top-left">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Adam-Blf/ExecelCleaner&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Adam-Blf/ExecelCleaner&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Adam-Blf/ExecelCleaner&type=date&legend=top-left" />
  </picture>
 </a>
